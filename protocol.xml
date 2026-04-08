@@ -55,7 +55,7 @@ Any inquiries can be addressed to:
 	<DeviceOID></DeviceOID>
 	<ElementType></ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General"/>
+	<Display defaultPage="General" pageOrder="General" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -69,6 +69,293 @@ Any inquiries can be addressed to:
 			<Description>After Startup</Description>
 			<Type>dummy</Type>
 		</Param>
+		
+		
+		<!-- Status -->
+		<Param id="10" trending="false">
+			<Name>Status</Name>
+			<Description>Status info</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discrete</Type>
+				<Discreets>
+					<Discreet>
+						<Value>0</Value>
+						<Display>Disabled</Display>
+					</Discreet>
+					<Discreet>
+						<Value>1</Value>
+						<Display>Enabled</Display>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="20" setter="true">
+			<Name>Status</Name>
+			<Description>Status info</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discrete</Type>
+				<Discreets>
+					<Discreet>
+						<Value>0</Value>
+						<Display>Disabled</Display>
+					</Discreet>
+					<Discreet>
+						<Value>1</Value>
+						<Display>Enabled</Display>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<!-- Auto Chroma Weight -->
+		
+		<Param id="30" trending="false">
+			<Name>Auto Chroma Weight</Name>
+			<Description>Auto Chroma Weight info</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discrete</Type>
+				<Discreets>
+					<Discreet>
+						<Value>0</Value>
+						<Display>Disabled</Display>
+					</Discreet>
+					<Discreet>
+						<Value>1</Value>
+						<Display>Enabled</Display>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="40" setter="true">
+			<Name>Auto Chroma Weight</Name>
+			<Description>Auto Chroma Weight info</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discrete</Type>
+				<Discreets>
+					<Discreet>
+						<Value>0</Value>
+						<Display>Disabled</Display>
+					</Discreet>
+					<Discreet>
+						<Value>1</Value>
+						<Display>Enabled</Display>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<!-- Auto Chroma Weight -->
+
+		<Param id="50" trending="false">
+			<Name>Lossless Mode</Name>
+			<Description>Lossless Mode</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext></Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discrete</Type>
+				<Discreets>
+					<Discreet>
+						<Value>0</Value>
+						<Display>Disabled</Display>
+					</Discreet>
+					<Discreet>
+						<Value>1</Value>
+						<Display>Enabled</Display>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="60" setter="true">
+			<Name>Lossless Mode</Name>
+			<Description>Lossless Mode</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>discrete</Type>
+				<Discreets>
+					<Discreet>
+						<Value>0</Value>
+						<Display>Disabled</Display>
+					</Discreet>
+					<Discreet>
+						<Value>1</Value>
+						<Display>Enabled</Display>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<!-- Current Compressed Bitrate -->
+
+		<Param id="70" trending="false">
+			<Name>Current Compressed Bitrate</Name>
+			<Description>Current Compressed Bitrate</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext></Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+				<Unit>Mbps</Unit>
+				<Decimals>3</Decimals>
+			</Measurement>
+		</Param>
+		<Param id="80" setter="true">
+			<Name>Current Compressed Bitrate</Name>
+			<Description>Current Compressed Bitrate</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+				<Unit>Mbps</Unit>
+				<Decimals>3</Decimals>
+			</Measurement>
+		</Param>
+
+		<!-- Chroma Weight -->
+
+		<Param id="90" trending="false">
+			<Name>Chroma Weight</Name>
+			<Description>Chroma Weight</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext></Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+				<Unit>%</Unit>
+				<Range>
+					<Min>0</Min>
+					<Max>100</Max>
+				</Range>
+			</Measurement>
+		</Param>
+		<Param id="100" setter="true">
+			<Name>Chroma Weight</Name>
+			<Description>Chroma Weight</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+				<Unit>%</Unit>
+				<Range>
+					<Min>0</Min>
+					<Max>100</Max>
+				</Range>
+			</Measurement>
+		</Param>
+		
+		
 	</Params>
 
 	<QActions>

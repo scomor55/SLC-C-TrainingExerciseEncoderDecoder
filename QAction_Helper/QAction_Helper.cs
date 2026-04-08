@@ -8,12 +8,72 @@ namespace Skyline.DataMiner.Scripting
 {
 public static class Parameter
 {
+	/// <summary>PID: 10 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int status_10 = 10;
+	/// <summary>PID: 10 | Type: read</summary>
+	public const int status = 10;
+	/// <summary>PID: 30 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int autoChromaWeight_30 = 30;
+	/// <summary>PID: 30 | Type: read</summary>
+	public const int autoChromaWeight = 30;
+	/// <summary>PID: 50 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int losslessMode_50 = 50;
+	/// <summary>PID: 50 | Type: read</summary>
+	public const int losslessMode = 50;
+	/// <summary>PID: 70 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int currentCompressedBitrate_70 = 70;
+	/// <summary>PID: 70 | Type: read</summary>
+	public const int currentCompressedBitrate = 70;
+	/// <summary>PID: 90 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int chromaWeight_90 = 90;
+	/// <summary>PID: 90 | Type: read</summary>
+	public const int chromaWeight = 90;
 	public class Write
 	{
+		/// <summary>PID: 20 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int status_20 = 20;
+		/// <summary>PID: 20 | Type: write</summary>
+		public const int status = 20;
+		/// <summary>PID: 40 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int autoChromaWeight_40 = 40;
+		/// <summary>PID: 40 | Type: write</summary>
+		public const int autoChromaWeight = 40;
+		/// <summary>PID: 60 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int losslessMode_60 = 60;
+		/// <summary>PID: 60 | Type: write</summary>
+		public const int losslessMode = 60;
+		/// <summary>PID: 80 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int currentCompressedBitrate_80 = 80;
+		/// <summary>PID: 80 | Type: write</summary>
+		public const int currentCompressedBitrate = 80;
+		/// <summary>PID: 100 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int chromaWeight_100 = 100;
+		/// <summary>PID: 100 | Type: write</summary>
+		public const int chromaWeight = 100;
 	}
 }
 public class WriteParameters
 {
+	/// <summary>PID: 20  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	public System.Object Status {get { return Protocol.GetParameter(20); }set { Protocol.SetParameter(20, value); }}
+	/// <summary>PID: 40  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	public System.Object AutoChromaWeight {get { return Protocol.GetParameter(40); }set { Protocol.SetParameter(40, value); }}
+	/// <summary>PID: 60  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	public System.Object LosslessMode {get { return Protocol.GetParameter(60); }set { Protocol.SetParameter(60, value); }}
+	/// <summary>PID: 80  | Type: write</summary>
+	public System.Object CurrentCompressedBitrate {get { return Protocol.GetParameter(80); }set { Protocol.SetParameter(80, value); }}
+	/// <summary>PID: 100  | Type: write</summary>
+	public System.Object ChromaWeight {get { return Protocol.GetParameter(100); }set { Protocol.SetParameter(100, value); }}
 	public SLProtocolExt Protocol;
 	public WriteParameters(SLProtocolExt protocol)
 	{
@@ -23,12 +83,67 @@ public class WriteParameters
 public interface SLProtocolExt : SLProtocol
 {
 	object Afterstartup_dummy { get; set; }
+	object Status_10 { get; set; }
+	object Status { get; set; }
+	object Status_20 { get; set; }
+	object AutoChromaWeight_30 { get; set; }
+	object AutoChromaWeight { get; set; }
+	object AutoChromaWeight_40 { get; set; }
+	object LosslessMode_50 { get; set; }
+	object LosslessMode { get; set; }
+	object LosslessMode_60 { get; set; }
+	object CurrentCompressedBitrate_70 { get; set; }
+	object CurrentCompressedBitrate { get; set; }
+	object CurrentCompressedBitrate_80 { get; set; }
+	object ChromaWeight_90 { get; set; }
+	object ChromaWeight { get; set; }
+	object ChromaWeight_100 { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
+	/// <summary>PID: 10  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Status_10 {get { return GetParameter(10); }set { SetParameter(10, value); }}
+	/// <summary>PID: 10  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	public System.Object Status {get { return GetParameter(10); }set { SetParameter(10, value); }}
+	/// <summary>PID: 20  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Status_20 {get { return GetParameter(20); }set { SetParameter(20, value); }}
+	/// <summary>PID: 30  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object AutoChromaWeight_30 {get { return GetParameter(30); }set { SetParameter(30, value); }}
+	/// <summary>PID: 30  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	public System.Object AutoChromaWeight {get { return GetParameter(30); }set { SetParameter(30, value); }}
+	/// <summary>PID: 40  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object AutoChromaWeight_40 {get { return GetParameter(40); }set { SetParameter(40, value); }}
+	/// <summary>PID: 50  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object LosslessMode_50 {get { return GetParameter(50); }set { SetParameter(50, value); }}
+	/// <summary>PID: 50  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	public System.Object LosslessMode {get { return GetParameter(50); }set { SetParameter(50, value); }}
+	/// <summary>PID: 60  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object LosslessMode_60 {get { return GetParameter(60); }set { SetParameter(60, value); }}
+	/// <summary>PID: 70  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object CurrentCompressedBitrate_70 {get { return GetParameter(70); }set { SetParameter(70, value); }}
+	/// <summary>PID: 70  | Type: read</summary>
+	public System.Object CurrentCompressedBitrate {get { return GetParameter(70); }set { SetParameter(70, value); }}
+	/// <summary>PID: 80  | Type: write</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object CurrentCompressedBitrate_80 {get { return GetParameter(80); }set { SetParameter(80, value); }}
+	/// <summary>PID: 90  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object ChromaWeight_90 {get { return GetParameter(90); }set { SetParameter(90, value); }}
+	/// <summary>PID: 90  | Type: read</summary>
+	public System.Object ChromaWeight {get { return GetParameter(90); }set { SetParameter(90, value); }}
+	/// <summary>PID: 100  | Type: write</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object ChromaWeight_100 {get { return GetParameter(100); }set { SetParameter(100, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
