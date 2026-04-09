@@ -45,17 +45,17 @@ Any inquiries can be addressed to:
 -->
 
 <Protocol xmlns="http://www.skyline.be/protocol">
-	<Name>Exercise Encoder/Decoder</Name>
-	<Description>Exercise Encoder/Decoder DataMiner connector</Description>
+	<Name>Exercise Encoder-Decoder</Name>
+	<Description>Exercise Encoder-Decoder DataMiner connector</Description>
 	<Version>1.0.0.1</Version>
-	<IntegrationID>DMS-DRV-</IntegrationID>
+	<IntegrationID>DMS-DRV-0000</IntegrationID>
 	<Provider>Skyline Communications</Provider>
-	<Vendor></Vendor>
-	<VendorOID>1.3.6.1.4.1.8813.2.</VendorOID>
-	<DeviceOID></DeviceOID>
-	<ElementType></ElementType>
-	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General" wideColumnPages=""/>
+	<Vendor>Skyline</Vendor>
+	<VendorOID>1.3.6.1.4.1.8813.2.00</VendorOID>
+	<DeviceOID>0000</DeviceOID>
+	<ElementType>Encoder/Decoder</ElementType>
+	<Type>virtual</Type>
+	<Display defaultPage="Encoder" pageOrder="Encoder;Decoder" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -64,52 +64,175 @@ Any inquiries can be addressed to:
 	</Compliancies>
 
 	<Params>
+
 		<Param id="2">
-			<Name>AfterStartup</Name>
+			<name>AfterStartup</name>
 			<Description>After Startup</Description>
 			<Type>dummy</Type>
 		</Param>
-		
-		
-		<!-- Status -->
-		<Param id="10" trending="false">
-			<Name>Status</Name>
-			<Description>Status info</Description>
+
+		<!-- Fixed params - copy sources -->
+		<Param id="200">
+			<name>NotAvailable</name>
+			<Description>Source parameter for setting Not Available (-1)</Description>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>fixed</LengthType>
+				<Length>2</Length>
+				<Value>-1</Value>
+			</Interprete>
+		</Param>
+
+		<Param id="201">
+			<name>SetStatusToDisabled</name>
+			<Description>Source parameter for setting Status to Disabled (0)</Description>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>fixed</LengthType>
+				<Length>1</Length>
+				<Value>0</Value>
+			</Interprete>
+		</Param>
+
+		<!-- Copy params - default values for enable -->
+		<Param id="300">
+			<name>CopyOfEncoderCurrentCompressedBitrate</name>
+			<Description>Copy Of Encoder Current Compressed Bitrate</Description>
 			<Type>read</Type>
-			<Information>
-			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
+				<DefaultValue>150</DefaultValue>
+			</Interprete>
+		</Param>
+
+		<Param id="301">
+			<name>CopyOfEncoderAutoChromaWeight</name>
+			<Description>Copy Of Encoder Auto Chroma Weight</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>0</DefaultValue>
+			</Interprete>
+		</Param>
+
+		<Param id="302">
+			<name>CopyOfEncoderChromaWeight</name>
+			<Description>Copy Of Encoder Chroma Weight</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>75</DefaultValue>
+			</Interprete>
+		</Param>
+
+		<Param id="303">
+			<name>CopyOfEncoderLosslessMode</name>
+			<Description>Copy Of Encoder Lossless Mode</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>0</DefaultValue>
+			</Interprete>
+		</Param>
+
+		<Param id="304">
+			<name>CopyOfDecoderCurrentCompressedBitrate</name>
+			<Description>Copy Of Decoder Current Compressed Bitrate</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>200</DefaultValue>
+			</Interprete>
+		</Param>
+
+		<Param id="305">
+			<name>CopyOfDecoderProgressionOrder</name>
+			<Description>Copy Of Decoder Progression Order</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>0</DefaultValue>
+			</Interprete>
+		</Param>
+
+		<Param id="306">
+			<name>CopyOfDecoderCodeBlockWidth</name>
+			<Description>Copy Of Decoder Code Block Width</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>64</DefaultValue>
+			</Interprete>
+		</Param>
+
+		<Param id="307">
+			<name>CopyOfDecoderCodeBlockHeight</name>
+			<Description>Copy Of Decoder Code Block Height</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>64</DefaultValue>
+			</Interprete>
+		</Param>
+
+		<!-- ENCODER -->
+		<Param id="10" trending="true">
+			<name>EncoderStatus</name>
+			<Description>Encoder Status</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>1</DefaultValue>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>Encoder</Page>
 						<Column>0</Column>
 						<Row>0</Row>
 					</Position>
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type>discrete</Type>
+				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
-						<Value>0</Value>
 						<Display>Disabled</Display>
+						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Value>1</Value>
 						<Display>Enabled</Display>
+						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
 		<Param id="20" setter="true">
-			<Name>Status</Name>
-			<Description>Status info</Description>
+			<name>EncoderStatus</name>
+			<Description>Encoder Status</Description>
 			<Type>write</Type>
 			<Interprete>
 				<RawType>numeric text</RawType>
@@ -120,66 +243,103 @@ Any inquiries can be addressed to:
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>Encoder</Page>
 						<Column>0</Column>
 						<Row>0</Row>
 					</Position>
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type>discrete</Type>
+				<Type>togglebutton</Type>
 				<Discreets>
 					<Discreet>
-						<Value>0</Value>
 						<Display>Disabled</Display>
+						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Value>1</Value>
 						<Display>Enabled</Display>
+						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
-		<!-- Auto Chroma Weight -->
-		
-		<Param id="30" trending="false">
-			<Name>Auto Chroma Weight</Name>
-			<Description>Auto Chroma Weight info</Description>
+
+		<Param id="70" trending="true">
+			<name>EncoderCurrentCompressedBitrate</name>
+			<Description>Encoder Current Compressed Bitrate</Description>
 			<Type>read</Type>
-			<Information>
-			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+				<DefaultValue>-1</DefaultValue>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Units>Mbps</Units>
+				<Decimals>3</Decimals>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>Encoder</Page>
 						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type>discrete</Type>
+				<Type>analog</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="30" trending="true">
+			<name>EncoderAutoChromaWeight</name>
+			<Description>Encoder Auto Chroma Weight</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+				<DefaultValue>-1</DefaultValue>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Encoder</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
-						<Value>0</Value>
 						<Display>Disabled</Display>
+						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Value>1</Value>
 						<Display>Enabled</Display>
+						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
 		<Param id="40" setter="true">
-			<Name>Auto Chroma Weight</Name>
-			<Description>Auto Chroma Weight info</Description>
+			<name>EncoderAutoChromaWeight</name>
+			<Description>Encoder Auto Chroma Weight</Description>
 			<Type>write</Type>
 			<Interprete>
 				<RawType>numeric text</RawType>
@@ -190,36 +350,323 @@ Any inquiries can be addressed to:
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>Encoder</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>togglebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Disabled</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Enabled</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<Param id="90" trending="true">
+			<name>EncoderChromaWeight</name>
+			<Description>Encoder Chroma Weight</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+				<DefaultValue>-1</DefaultValue>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Units>%</Units>
+				<Range>
+					<Low>0</Low>
+					<High>100</High>
+				</Range>
+				<Positions>
+					<Position>
+						<Page>Encoder</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>analog</Type>
+			</Measurement>
+		</Param>
+		<Param id="100" setter="true">
+			<name>EncoderChromaWeight</name>
+			<Description>Encoder Chroma Weight</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Units>%</Units>
+				<Range>
+					<Low>0</Low>
+					<High>100</High>
+				</Range>
+				<Positions>
+					<Position>
+						<Page>Encoder</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>analog</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="50" trending="true">
+			<name>EncoderLosslessMode</name>
+			<Description>Encoder Lossless Mode</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+				<DefaultValue>-1</DefaultValue>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Encoder</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Disabled</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Enabled</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="60" setter="true">
+			<name>EncoderLosslessMode</name>
+			<Description>Encoder Lossless Mode</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Encoder</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>togglebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Disabled</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Enabled</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<!-- DECODER -->
+		<Param id="110" trending="true">
+			<name>DecoderStatus</name>
+			<Description>Decoder Status</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>0</DefaultValue>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Decoder</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Disabled</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Enabled</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="120" setter="true">
+			<name>DecoderStatus</name>
+			<Description>Decoder Status</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Decoder</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>togglebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Disabled</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Enabled</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<Param id="130" trending="true">
+			<name>DecoderCurrentCompressedBitrate</name>
+			<Description>Decoder Current Compressed Bitrate</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+				<DefaultValue>-1</DefaultValue>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Units>Mbps</Units>
+				<Decimals>3</Decimals>
+				<Positions>
+					<Position>
+						<Page>Decoder</Page>
 						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type>discrete</Type>
+				<Type>analog</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="140" trending="true">
+			<name>DecoderProgressionOrder</name>
+			<Description>Decoder Progression Order</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+				<DefaultValue>-1</DefaultValue>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Decoder</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
+						<Display>LCRP</Display>
 						<Value>0</Value>
-						<Display>Disabled</Display>
 					</Discreet>
 					<Discreet>
+						<Display>RLCP</Display>
 						<Value>1</Value>
-						<Display>Enabled</Display>
+					</Discreet>
+					<Discreet>
+						<Display>RPCL</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>PCRL</Display>
+						<Value>3</Value>
+					</Discreet>
+					<Discreet>
+						<Display>CPRL</Display>
+						<Value>4</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
-
-		<!-- Auto Chroma Weight -->
-
-		<Param id="50" trending="false">
-			<Name>Lossless Mode</Name>
-			<Description>Lossless Mode</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext></Subtext>
-			</Information>
+		<Param id="150" setter="true">
+			<name>DecoderProgressionOrder</name>
+			<Description>Decoder Progression Order</Description>
+			<Type>write</Type>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
@@ -227,175 +674,436 @@ Any inquiries can be addressed to:
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Decoder</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
-				<Type>discrete</Type>
+				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
+						<Display>LCRP</Display>
 						<Value>0</Value>
-						<Display>Disabled</Display>
 					</Discreet>
 					<Discreet>
+						<Display>RLCP</Display>
 						<Value>1</Value>
-						<Display>Enabled</Display>
+					</Discreet>
+					<Discreet>
+						<Display>RPCL</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>PCRL</Display>
+						<Value>3</Value>
+					</Discreet>
+					<Discreet>
+						<Display>CPRL</Display>
+						<Value>4</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
-		<Param id="60" setter="true">
-			<Name>Lossless Mode</Name>
-			<Description>Lossless Mode</Description>
-			<Type>write</Type>
+
+		<Param id="160" trending="false">
+			<name>DecoderCodeBlockWidth</name>
+			<Description>Decoder Code Block Width</Description>
+			<Type>read</Type>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+				<DefaultValue>-1</DefaultValue>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Units>px</Units>
+				<Positions>
+					<Position>
+						<Page>Decoder</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
-				<Type>discrete</Type>
-				<Discreets>
-					<Discreet>
-						<Value>0</Value>
-						<Display>Disabled</Display>
-					</Discreet>
-					<Discreet>
-						<Value>1</Value>
-						<Display>Enabled</Display>
-					</Discreet>
-				</Discreets>
+				<Type>number</Type>
 			</Measurement>
 		</Param>
 
-		<!-- Current Compressed Bitrate -->
-
-		<Param id="70" trending="false">
-			<Name>Current Compressed Bitrate</Name>
-			<Description>Current Compressed Bitrate</Description>
+		<Param id="170" trending="false">
+			<name>DecoderCodeBlockHeight</name>
+			<Description>Decoder Code Block Height</Description>
 			<Type>read</Type>
-			<Information>
-				<Subtext></Subtext>
-			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
+				<DefaultValue>-1</DefaultValue>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Units>px</Units>
+				<Positions>
+					<Position>
+						<Page>Decoder</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
 				<Type>number</Type>
-				<Unit>Mbps</Unit>
-				<Decimals>3</Decimals>
-			</Measurement>
-		</Param>
-		<Param id="80" setter="true">
-			<Name>Current Compressed Bitrate</Name>
-			<Description>Current Compressed Bitrate</Description>
-			<Type>write</Type>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>number</Type>
-				<Unit>Mbps</Unit>
-				<Decimals>3</Decimals>
 			</Measurement>
 		</Param>
 
-		<!-- Chroma Weight -->
-
-		<Param id="90" trending="false">
-			<Name>Chroma Weight</Name>
-			<Description>Chroma Weight</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext></Subtext>
-			</Information>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>number</Type>
-				<Unit>%</Unit>
-				<Range>
-					<Min>0</Min>
-					<Max>100</Max>
-				</Range>
-			</Measurement>
-		</Param>
-		<Param id="100" setter="true">
-			<Name>Chroma Weight</Name>
-			<Description>Chroma Weight</Description>
-			<Type>write</Type>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>number</Type>
-				<Unit>%</Unit>
-				<Range>
-					<Min>0</Min>
-					<Max>100</Max>
-				</Range>
-			</Measurement>
-		</Param>
-		
-		
 	</Params>
 
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
-		<QAction id="2" name="After Startup" encoding="csharp" triggers="2" />
+		<!--	<QAction id="2" name="After Startup" encoding="csharp" triggers="2" />-->
 	</QActions>
 
 	<Groups>
-		<Group id="2">
-			<Name>After Startup</Name>
+		<!--<Group id="102">
+			<n>After Startup</n>
 			<Description>After Startup</Description>
 			<Type>poll action</Type>
 			<Content>
-				<Action>2</Action>
+				<Action>102</Action>
+			</Content>
+		</Group>-->
+		<Group id="103">
+			<name>Disable Encoder Parameters</name>
+			<Description>Disable Encoder Parameters</Description>
+			<Type>poll action</Type>
+			<Content>
+				<Action>111</Action>
+				<Action>112</Action>
+				<Action>113</Action>
+				<Action>114</Action>
+			</Content>
+		</Group>
+		<Group id="104">
+			<name>Disable Decoder Parameters</name>
+			<Description>Disable Decoder Parameters</Description>
+			<Type>poll action</Type>
+			<Content>
+				<Action>121</Action>
+				<Action>122</Action>
+				<Action>123</Action>
+				<Action>124</Action>
+			</Content>
+		</Group>
+		<Group id="105">
+			<name>Enable Encoder Parameters</name>
+			<Description>Enable Encoder Parameters</Description>
+			<Type>poll action</Type>
+			<Content>
+				<Action>131</Action>
+				<Action>132</Action>
+				<Action>133</Action>
+				<Action>134</Action>
+				<Action>135</Action>
+			</Content>
+		</Group>
+		<Group id="106">
+			<name>Enable Decoder Parameters</name>
+			<Description>Enable Decoder Parameters</Description>
+			<Type>poll action</Type>
+			<Content>
+				<Action>141</Action>
+				<Action>142</Action>
+				<Action>143</Action>
+				<Action>144</Action>
+				<Action>145</Action>
 			</Content>
 		</Group>
 	</Groups>
 
 	<Triggers>
-		<Trigger id="1">
+		<Trigger id="101">
 			<Name>After Startup</Name>
 			<On>protocol</On>
 			<Time>after startup</Time>
 			<Type>action</Type>
 			<Content>
-				<Id>1</Id>
+				<Id>152</Id>
+			</Content>
+		</Trigger>
+
+		<!-- Encoder Status read changes: if 0 disable encoder, else enable encoder + disable decoder -->
+		<Trigger id="102">
+			<name>Encoder Status Changed</name>
+			<On id="10">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Condition><![CDATA[id:10 == 0]]></Condition>
+			<Content>
+				<Id>151</Id>
+				<Id else="true">152</Id>
+			</Content>
+		</Trigger>
+
+		<!-- Decoder Status read changes: if 0 disable decoder, else enable decoder + disable encoder -->
+		<Trigger id="103">
+			<name>Decoder Status Changed</name>
+			<On id="110">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Condition><![CDATA[id:110 == 0]]></Condition>
+			<Content>
+				<Id>153</Id>
+				<Id else="true">154</Id>
+			</Content>
+		</Trigger>
+
+		<!-- Write to Read: Encoder Status -->
+		<Trigger id="104">
+			<name>Encoder Status Write Changed</name>
+			<On id="20">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>161</Id>
+			</Content>
+		</Trigger>
+
+		<!-- Write to Read: Decoder Status -->
+		<Trigger id="105">
+			<name>Decoder Status Write Changed</name>
+			<On id="120">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>162</Id>
+			</Content>
+		</Trigger>
+
+		<!-- Write to Read: Encoder Auto Chroma Weight -->
+		<Trigger id="106">
+			<name>Encoder Auto Chroma Weight Write Changed</name>
+			<On id="40">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>163</Id>
+			</Content>
+		</Trigger>
+
+		<!-- Write to Read: Encoder Chroma Weight -->
+		<Trigger id="107">
+			<name>Encoder Chroma Weight Write Changed</name>
+			<On id="100">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>164</Id>
+			</Content>
+		</Trigger>
+
+		<!-- Write to Read: Encoder Lossless Mode -->
+		<Trigger id="108">
+			<name>Encoder Lossless Mode Write Changed</name>
+			<On id="60">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>165</Id>
+			</Content>
+		</Trigger>
+
+		<!-- Write to Read: Decoder Progression Order -->
+		<Trigger id="109">
+			<name>Decoder Progression Order Write Changed</name>
+			<On id="150">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>166</Id>
 			</Content>
 		</Trigger>
 	</Triggers>
 
 	<Actions>
-		<Action id="1">
-			<Name>After Startup Group</Name>
-			<On id="2">group</On>
+		<!-- After Startup -->
+		<!--	<Action id="101">
+			<n>After Startup Group</n>
+			<On id="102">group</On>
 			<Type>execute next</Type>
 		</Action>
-		<Action id="2">
-			<Name>After Startup QAction</Name>
+		<Action id="102">
+			<n>After Startup QAction</n>
 			<On id="2">parameter</On>
 			<Type>run actions</Type>
+		</Action>-->
+
+		<!-- Disable Encoder params -->
+		<Action id="111">
+			<name>Disable Encoder Bitrate</name>
+			<On id="70">parameter</On>
+			<Type id="200">copy</Type>
+		</Action>
+		<Action id="112">
+			<name>Disable Encoder Auto Chroma Weight</name>
+			<On id="30">parameter</On>
+			<Type id="200">copy</Type>
+		</Action>
+		<Action id="113">
+			<name>Disable Encoder Chroma Weight</name>
+			<On id="90">parameter</On>
+			<Type id="200">copy</Type>
+		</Action>
+		<Action id="114">
+			<name>Disable Encoder Lossless Mode</name>
+			<On id="50">parameter</On>
+			<Type id="200">copy</Type>
+		</Action>
+
+		<!-- Disable Decoder params -->
+		<Action id="121">
+			<name>Disable Decoder Bitrate</name>
+			<On id="130">parameter</On>
+			<Type id="200">copy</Type>
+		</Action>
+		<Action id="122">
+			<name>Disable Decoder Progression Order</name>
+			<On id="140">parameter</On>
+			<Type id="200">copy</Type>
+		</Action>
+		<Action id="123">
+			<name>Disable Decoder Code Block Width</name>
+			<On id="160">parameter</On>
+			<Type id="200">copy</Type>
+		</Action>
+		<Action id="124">
+			<name>Disable Decoder Code Block Height</name>
+			<On id="170">parameter</On>
+			<Type id="200">copy</Type>
+		</Action>
+
+		<!-- Enable Encoder params -->
+		<Action id="131">
+			<name>Enable Encoder Bitrate</name>
+			<On id="70">parameter</On>
+			<Type id="300">copy</Type>
+		</Action>
+		<Action id="132">
+			<name>Enable Encoder Auto Chroma Weight</name>
+			<On id="30">parameter</On>
+			<Type id="301">copy</Type>
+		</Action>
+		<Action id="133">
+			<name>Enable Encoder Chroma Weight</name>
+			<On id="90">parameter</On>
+			<Type id="302">copy</Type>
+		</Action>
+		<Action id="134">
+			<name>Enable Encoder Lossless Mode</name>
+			<On id="50">parameter</On>
+			<Type id="303">copy</Type>
+		</Action>
+		<Action id="135">
+			<name>Set Decoder Status To Disabled</name>
+			<On id="110">parameter</On>
+			<Type id="201">copy</Type>
+		</Action>
+
+		<!-- Enable Decoder params -->
+		<Action id="141">
+			<name>Enable Decoder Bitrate</name>
+			<On id="130">parameter</On>
+			<Type id="304">copy</Type>
+		</Action>
+		<Action id="142">
+			<name>Enable Decoder Progression Order</name>
+			<On id="140">parameter</On>
+			<Type id="305">copy</Type>
+		</Action>
+		<Action id="143">
+			<name>Enable Decoder Code Block Width</name>
+			<On id="160">parameter</On>
+			<Type id="306">copy</Type>
+		</Action>
+		<Action id="144">
+			<name>Enable Decoder Code Block Height</name>
+			<On id="170">parameter</On>
+			<Type id="307">copy</Type>
+		</Action>
+		<Action id="145">
+			<name>Set Encoder Status To Disabled</name>
+			<On id="10">parameter</On>
+			<Type id="201">copy</Type>
+		</Action>
+
+		<!-- Execute groups -->
+		<Action id="151">
+			<name>Execute Disable Encoder Parameters Group</name>
+			<On id="103">group</On>
+			<Type>execute next</Type>
+		</Action>
+		<Action id="152">
+			<name>Execute Enable Encoder Parameters Group</name>
+			<On id="105">group</On>
+			<Type>execute next</Type>
+		</Action>
+		<Action id="153">
+			<name>Execute Disable Decoder Parameters Group</name>
+			<On id="104">group</On>
+			<Type>execute next</Type>
+		</Action>
+		<Action id="154">
+			<name>Execute Enable Decoder Parameters Group</name>
+			<On id="106">group</On>
+			<Type>execute next</Type>
+		</Action>
+
+		<!-- Write to Read passthrough -->
+		<Action id="161">
+			<name>Encoder Status Write To Read</name>
+			<On id="10">parameter</On>
+			<Type id="20">copy</Type>
+		</Action>
+		<Action id="162">
+			<name>Decoder Status Write To Read</name>
+			<On id="110">parameter</On>
+			<Type id="120">copy</Type>
+		</Action>
+		<Action id="163">
+			<name>Encoder Auto Chroma Weight Write To Read</name>
+			<On id="30">parameter</On>
+			<Type id="40">copy</Type>
+		</Action>
+		<Action id="164">
+			<name>Encoder Chroma Weight Write To Read</name>
+			<On id="90">parameter</On>
+			<Type id="100">copy</Type>
+		</Action>
+		<Action id="165">
+			<name>Encoder Lossless Mode Write To Read</name>
+			<On id="50">parameter</On>
+			<Type id="60">copy</Type>
+		</Action>
+		<Action id="166">
+			<name>Decoder Progression Order Write To Read</name>
+			<On id="140">parameter</On>
+			<Type id="150">copy</Type>
 		</Action>
 	</Actions>
 
