@@ -45,8 +45,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QAction_1", "..\..\..\Deskt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QAction_2", "..\..\..\Desktop\QAction_2\QAction_2.csproj", "{6B1C6570-AB45-2EAC-C0E1-70999BC05FE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QAction_Helper", "..\..\..\Desktop\QAction_Helper\QAction_Helper.csproj", "{2D55FB14-C620-AB9A-8951-87F5F8388B1C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,10 +63,6 @@ Global
 		{6B1C6570-AB45-2EAC-C0E1-70999BC05FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B1C6570-AB45-2EAC-C0E1-70999BC05FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B1C6570-AB45-2EAC-C0E1-70999BC05FE2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D55FB14-C620-AB9A-8951-87F5F8388B1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D55FB14-C620-AB9A-8951-87F5F8388B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D55FB14-C620-AB9A-8951-87F5F8388B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D55FB14-C620-AB9A-8951-87F5F8388B1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,7 +72,6 @@ Global
 		{C9E44056-4ED1-4DF4-B7C0-9BC99BAF040E} = {5DEF7A54-AEF6-44D1-A19D-6CEC75C2A4EC}
 		{B9766EE6-78BE-4739-DD80-A811D3ECD125} = {4DD010B3-F443-4E53-A3F7-232E8C98E61A}
 		{6B1C6570-AB45-2EAC-C0E1-70999BC05FE2} = {4DD010B3-F443-4E53-A3F7-232E8C98E61A}
-		{2D55FB14-C620-AB9A-8951-87F5F8388B1C} = {4DD010B3-F443-4E53-A3F7-232E8C98E61A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {261EA61A-A5D6-4177-B799-18A68BA802AE}

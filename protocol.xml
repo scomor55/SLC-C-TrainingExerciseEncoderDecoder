@@ -47,7 +47,7 @@ Any inquiries can be addressed to:
 <Protocol xmlns="http://www.skyline.be/protocol">
 	<Name>Exercise Encoder-Decoder</Name>
 	<Description>Exercise Encoder-Decoder DataMiner connector</Description>
-	<Version>1.0.0.1</Version>
+	<Version>1.0.0.5</Version>
 	<IntegrationID>DMS-DRV-0000</IntegrationID>
 	<Provider>Skyline Communications</Provider>
 	<Vendor>Skyline</Vendor>
@@ -777,7 +777,7 @@ Any inquiries can be addressed to:
 
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
-		<!--	<QAction id="2" name="After Startup" encoding="csharp" triggers="2" />-->
+		<QAction id="2" name="After Startup" encoding="csharp" triggers="2" />
 	</QActions>
 
 	<Groups>
