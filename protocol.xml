@@ -98,6 +98,18 @@ Any inquiries can be addressed to:
 			</Interprete>
 		</Param>
 
+		<Param id="202">
+			<Name>SetStatusToEnabled</Name>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>fixed</LengthType>
+				<Length>1</Length>
+				<Value>1</Value>
+			</Interprete>
+		</Param>
+
 		<!-- Copy params - default values for enable -->
 		<Param id="300">
 			<Name>CopyOfEncoderCurrentCompressedBitrate</Name>
@@ -810,6 +822,7 @@ Any inquiries can be addressed to:
 				<Action>113</Action>
 				<Action>114</Action>
 				<Action>115</Action>
+				<Action>116</Action>
 			</Content>
 		</Group>
 		<Group id="204">
@@ -821,6 +834,8 @@ Any inquiries can be addressed to:
 				<Action>122</Action>
 				<Action>123</Action>
 				<Action>124</Action>
+				<Action>125</Action>
+				<Action>126</Action>
 			</Content>
 		</Group>
 		<Group id="205">
@@ -922,9 +937,14 @@ Any inquiries can be addressed to:
 			<Type id="200">copy</Type>
 		</Action>
 		<Action id="115">
-			<Name>Set Encoder Write Status To Disabled</Name>
+			<Name>Set Encoder Status To Disabled</Name>
 			<On id="20">parameter</On>
 			<Type id="201">copy</Type>
+		</Action>
+		<Action id="116">
+			<Name>Enable Decoder When Encoder Disabled</Name>
+			<On id="110">parameter</On>
+			<Type id="202">copy</Type>
 		</Action>
 
 		<!-- Disable Decoder params -->
@@ -947,6 +967,16 @@ Any inquiries can be addressed to:
 			<Name>Disable Decoder Code Block Height</Name>
 			<On id="170">parameter</On>
 			<Type id="200">copy</Type>
+		</Action>
+		<Action id="125">
+			<Name>Set Decoder Status To Disabled</Name>
+			<On id="120">parameter</On>
+			<Type id="201">copy</Type>
+		</Action>
+		<Action id="126">
+			<Name>Enable Encoder When Decoder Disabled</Name>
+			<On id="10">parameter</On>
+			<Type id="202">copy</Type>
 		</Action>
 
 		<!-- Enable Encoder params -->

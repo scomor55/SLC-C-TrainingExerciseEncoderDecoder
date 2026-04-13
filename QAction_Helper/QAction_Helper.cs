@@ -183,6 +183,7 @@ public interface SLProtocolExt : SLProtocol
 	object Decodercodeblockheight { get; set; }
 	object Notavailable__fixed { get; set; }
 	object Setstatustodisabled__fixed { get; set; }
+	object Setstatustoenabled__fixed { get; set; }
 	object Copyofencodercurrentcompressedbitrate_300 { get; set; }
 	object Copyofencodercurrentcompressedbitrate { get; set; }
 	object Copyofencoderautochromaweight_301 { get; set; }
@@ -277,6 +278,8 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Notavailable__fixed {get { return GetParameter(200); }set { SetParameter(200, value); }}
 	/// <summary>PID: 201  | Type: fixed</summary>
 	public System.Object Setstatustodisabled__fixed {get { return GetParameter(201); }set { SetParameter(201, value); }}
+	/// <summary>PID: 202  | Type: fixed</summary>
+	public System.Object Setstatustoenabled__fixed {get { return GetParameter(202); }set { SetParameter(202, value); }}
 	/// <summary>PID: 300  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Copyofencodercurrentcompressedbitrate_300 {get { return GetParameter(300); }set { SetParameter(300, value); }}
