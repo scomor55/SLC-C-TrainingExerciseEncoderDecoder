@@ -884,72 +884,6 @@ Any inquiries can be addressed to:
 				<Id else="true">154</Id>
 			</Content>
 		</Trigger>
-
-		<!-- Write to Read: Encoder Status -->
-		<!--<Trigger id="104">
-			<Name>Encoder Status Write Changed</Name>
-			<On id="20">parameter</On>
-			<Time>change</Time>
-			<Type>action</Type>
-			<Content>
-				<Id>161</Id>
-			</Content>
-		</Trigger>
-
-		--><!-- Write to Read: Decoder Status --><!--
-		<Trigger id="105">
-			<Name>Decoder Status Write Changed</Name>
-			<On id="120">parameter</On>
-			<Time>change</Time>
-			<Type>action</Type>
-			<Content>
-				<Id>162</Id>
-			</Content>
-		</Trigger>
-
-		--><!-- Write to Read: Encoder Auto Chroma Weight --><!--
-		<Trigger id="106">
-			<Name>Encoder Auto Chroma Weight Write Changed</Name>
-			<On id="40">parameter</On>
-			<Time>change</Time>
-			<Type>action</Type>
-			<Content>
-				<Id>163</Id>
-			</Content>
-		</Trigger>
-
-		--><!-- Write to Read: Encoder Chroma Weight --><!--
-		<Trigger id="107">
-			<Name>Encoder Chroma Weight Write Changed</Name>
-			<On id="100">parameter</On>
-			<Time>change</Time>
-			<Type>action</Type>
-			<Content>
-				<Id>164</Id>
-			</Content>
-		</Trigger>
-
-		--><!-- Write to Read: Encoder Lossless Mode --><!--
-		<Trigger id="108">
-			<Name>Encoder Lossless Mode Write Changed</Name>
-			<On id="60">parameter</On>
-			<Time>change</Time>
-			<Type>action</Type>
-			<Content>
-				<Id>165</Id>
-			</Content>
-		</Trigger>
-
-		--><!-- Write to Read: Decoder Progression Order --><!--
-		<Trigger id="109">
-			<Name>Decoder Progression Order Write Changed</Name>
-			<On id="150">parameter</On>
-			<Time>change</Time>
-			<Type>action</Type>
-			<Content>
-				<Id>166</Id>
-			</Content>
-		</Trigger>-->
 	</Triggers>
 
 	<Actions>
@@ -1085,37 +1019,6 @@ Any inquiries can be addressed to:
 			<Type>execute next</Type>
 		</Action>
 
-		<!-- Write to Read passthrough -->
-		<!--<Action id="161">
-			<Name>Encoder Status Write To Read</Name>
-			<On id="10">parameter</On>
-			<Type id="20">copy</Type>
-		</Action>
-		<Action id="162">
-			<Name>Decoder Status Write To Read</Name>
-			<On id="110">parameter</On>
-			<Type id="120">copy</Type>
-		</Action>
-		<Action id="163">
-			<Name>Encoder Auto Chroma Weight Write To Read</Name>
-			<On id="30">parameter</On>
-			<Type id="40">copy</Type>
-		</Action>
-		<Action id="164">
-			<Name>Encoder Chroma Weight Write To Read</Name>
-			<On id="90">parameter</On>
-			<Type id="100">copy</Type>
-		</Action>
-		<Action id="165">
-			<Name>Encoder Lossless Mode Write To Read</Name>
-			<On id="50">parameter</On>
-			<Type id="60">copy</Type>
-		</Action>
-		<Action id="166">
-			<Name>Decoder Progression Order Write To Read</Name>
-			<On id="140">parameter</On>
-			<Type id="150">copy</Type>
-		</Action>-->
 	</Actions>
 
 	<Timers>
