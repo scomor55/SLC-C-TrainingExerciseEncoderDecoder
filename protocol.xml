@@ -196,7 +196,7 @@ Any inquiries can be addressed to:
 		</Param>
 
 		<!-- ENCODER -->
-		<Param id="10" trending="true">
+		<Param id="10">
 			<Name>EncoderStatus</Name>
 			<Description>Encoder Status</Description>
 			<Type>read</Type>
@@ -264,7 +264,7 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 
-		<Param id="70" trending="true">
+		<Param id="70">
 			<Name>EncoderCurrentCompressedBitrate</Name>
 			<Description>Encoder Current Compressed Bitrate</Description>
 			<Type>read</Type>
@@ -301,7 +301,7 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 
-		<Param id="30" trending="true">
+		<Param id="30">
 			<Name>EncoderAutoChromaWeight</Name>
 			<Description>Encoder Auto Chroma Weight</Description>
 			<Type>read</Type>
@@ -375,7 +375,7 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 
-		<Param id="90" trending="true">
+		<Param id="90">
 			<Name>EncoderChromaWeight</Name>
 			<Description>Encoder Chroma Weight</Description>
 			<Type>read</Type>
@@ -439,7 +439,7 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 
-		<Param id="50" trending="true">
+		<Param id="50">
 			<Name>EncoderLosslessMode</Name>
 			<Description>Encoder Lossless Mode</Description>
 			<Type>read</Type>
@@ -514,7 +514,7 @@ Any inquiries can be addressed to:
 		</Param>
 
 		<!-- DECODER -->
-		<Param id="110" trending="true">
+		<Param id="110">
 			<Name>DecoderStatus</Name>
 			<Description>Decoder Status</Description>
 			<Type>read</Type>
@@ -582,7 +582,7 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 
-		<Param id="130" trending="true">
+		<Param id="130">
 			<Name>DecoderCurrentCompressedBitrate</Name>
 			<Description>Decoder Current Compressed Bitrate</Description>
 			<Type>read</Type>
@@ -619,7 +619,7 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 
-		<Param id="140" trending="true">
+		<Param id="140">
 			<Name>DecoderProgressionOrder</Name>
 			<Description>Decoder Progression Order</Description>
 			<Type>read</Type>
@@ -717,7 +717,7 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 
-		<Param id="160" trending="false">
+		<Param id="160">
 			<Name>DecoderCodeBlockWidth</Name>
 			<Description>Decoder Code Block Width</Description>
 			<Type>read</Type>
@@ -753,7 +753,7 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 
-		<Param id="170" trending="false">
+		<Param id="170">
 			<Name>DecoderCodeBlockHeight</Name>
 			<Description>Decoder Code Block Height</Description>
 			<Type>read</Type>
@@ -788,7 +788,7 @@ Any inquiries can be addressed to:
 				<Type>number</Type>
 			</Measurement>
 		</Param>
-
+		
 	</Params>
 	
 	<Groups>
@@ -1018,7 +1018,7 @@ Any inquiries can be addressed to:
 			<On id="206">group</On>
 			<Type>execute next</Type>
 		</Action>
-
+		
 	</Actions>
 
 	<Timers>
@@ -1045,8 +1045,6 @@ Any inquiries can be addressed to:
 		</Timer>
 	</Timers>
 
-	<PortSettings>
-	</PortSettings>
 
 	<VersionHistory>
 		<Branches>
