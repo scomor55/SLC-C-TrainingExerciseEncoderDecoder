@@ -804,14 +804,6 @@ Any inquiries can be addressed to:
 	</Params>
 	
 	<Groups>
-		<!--<Group id="202">
-			<Name>After Startup</Name>
-			<Description>After Startup</Description>
-			<Type>poll action</Type>
-			<Content>
-				<Action>152</Action>
-			</Content>
-		</Group>-->
 		<Group id="203">
 			<Name>Disable Encoder Parameters</Name>
 			<Description>Disable Encoder Parameters</Description>
@@ -903,18 +895,6 @@ Any inquiries can be addressed to:
 	</Triggers>
 
 	<Actions>
-		<!-- After Startup -->
-		<!--<Action id="101">
-			<Name>After Startup Group</Name>
-			<On id="202">group</On>
-			<Type>execute next</Type>
-		</Action>-->
-		<!--<Action id="102">
-			<Name>After Startup QAction</Name>
-			<On id="2">parameter</On>
-			<Type>run actions</Type>
-		</Action>-->
-
 		<!-- Disable Encoder params -->
 		<Action id="111">
 			<Name>Disable Encoder Bitrate</Name>
