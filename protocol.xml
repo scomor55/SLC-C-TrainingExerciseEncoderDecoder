@@ -809,6 +809,7 @@ Any inquiries can be addressed to:
 				<Action>112</Action>
 				<Action>113</Action>
 				<Action>114</Action>
+				<Action>115</Action>
 			</Content>
 		</Group>
 		<Group id="204">
@@ -919,6 +920,11 @@ Any inquiries can be addressed to:
 			<Name>Disable Encoder Lossless Mode</Name>
 			<On id="50">parameter</On>
 			<Type id="200">copy</Type>
+		</Action>
+		<Action id="115">
+			<Name>Set Encoder Write Status To Disabled</Name>
+			<On id="20">parameter</On>
+			<Type id="201">copy</Type>
 		</Action>
 
 		<!-- Disable Decoder params -->
